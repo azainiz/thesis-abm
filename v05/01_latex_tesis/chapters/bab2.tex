@@ -1,0 +1,152 @@
+\addtocontents{toc}{\vspace{1em}}
+
+\chapter{Tinjauan Pustaka}
+
+\section{Sistem Kompleks dan \textit{Emergence}}
+Sistem kompleks adalah sistem yang perilakunya secara intrinsik sulit untuk dimodelkan karena ketergantungan, persaingan, hubungan, atau jenis interaksi lain di antara elemen-elemennya atau antara sistem tertentu dan lingkungannya (Ladyman dkk., 2013).
+
+Melalui interaksi dari berbagai elemen, sebuah fenomena yang disebut \textit{emergence} muncul yang menjadi karakteristik dari sistem yang kompleks. \textit{Emergence} didefinisikan sebagai kemunculan struktur, pola, dan sifat yang baru dan koheren melalui interaksi beberapa elemen yang tersebar. Struktur yang muncul tidak dapat disimpulkan semata-mata dari sifat-sifat elemen, tetapi juga muncul dari interaksi elemen-elemen tersebut. Struktur yang muncul seperti itu merupakan sifat sistem, namun sering kali memberikan umpan balik kepada elemen-elemen yang menyusunnya (Wilensky dan Rand, 2015).
+
+Ciri-ciri penting dari fenomena \textit{emergence} adalah adanya pola global yang muncul secara spontan dari interaksi berbagai elemen, dan tidak adanya orkestrator atau koordinator yang terpusat. Struktur atau aturan di tingkat mikro atau individu mengarah pada pola yang teratur di tingkat makro. Adanya struktur makro yang terdiri dari banyak elemen, jika terdapat gangguan terhadapnya sering kali menyebabkan struktur tersebut berubah secara dinamis. (Wilensky dan Rand, 2015).
+
+\section{Pemodelan Berbasis Agen}
+Pemodelan berbasis agen atau biasa dikenal sebagai \textit{agent-based model} (ABM) adalah model yang biasanya digunakan untuk menganalisis sistem yang kompleks (Janssen dkk., 2019), di mana elemen berupa individu atau agen digambarkan sebagai entitas yang unik dan otonom atau bebas yang biasanya berinteraksi satu sama lain dan lingkungannya secara lokal (Railsback dan Grimm, 2019). ABM juga dapat menghasilkan suatu fenomena \textit{emergence} dari interaksi agen (Macal dan North, 2010).
+
+Beberapa karakteristik dari ABM adalah sebagai berikut (Wilensky dan Rand, 2015).
+\begin{enumerate}
+	\item Pada umumnya, pemodelan berbasis persamaaan atau equation-based model (EBM) menggunakan asumsi homogenitas, sedangkan ABM dapat dilakukan untuk populasi yang heterogen atau beragam.
+	\item Interaksi dan hasil dari simulasi ABM bersifat diskrit. Sebagai contoh, dinamika populasi yang menggunakan EBM memperlakukan populasi seolah-olah mereka bersifat kontinu padahal sebenarnya populasi adalah kumpulan individu-individu yang terpisah-pisah.
+	\item Dalam penerapan ABM, tidak diperlukan pemahaman yang mendalam mengenai pola keseluruhan yang akan dihasilkan dari perilaku masing-masing individu. Sebaliknya, diperlukan pemahaman perilaku individu untuk menentukan aturan-aturan pada entitas yang digunakan, sehingga dapat memberikan hasil yang dapat diamati melalui simulasi. Bahkan jika tidak memiliki hipotesis tentang bagaimana variabel agregat akan berinteraksi, model masih dapat dibangun dan hasil dapat diperoleh.
+	\item Karena ABM menggambarkan individu, bukan keseluruhan, hubungan antara model dan dunia nyata lebih cocok. Oleh karena itu, akan lebih mudah untuk menjelaskan apa yang dilakukan oleh sebuah model kepada seseorang yang tidak memiliki pelatihan dalam paradigma pemodelan tertentu. 
+	\item ABM dapat memberikan detail tingkat individu dan agregat pada saat yang bersamaan. Karena ABM memodelkan setiap individu dan keputusan mereka, maka dimungkinkan untuk memeriksa riwayat dan kehidupan setiap individu dalam model, atau seluruh individu dan mengamati hasil keseluruhan. Pendekatan ini disebut “\textit{bottom-up}”.
+	\item Mudah untuk memasukkan sifat acak atau \textit{randomness} ke dalam model karena keputusan yang akan diambil oleh agen dapat dibuat berdasarkan probabilitas.
+\end{enumerate}
+
+\vspace{3em}
+
+Perlu diketahui bahwa setiap metode memiliki keterbatasan, dan ABM tidak terkecuali. Salah satunya adalah membutuhkan daya komputasi yang besar karena memodelkan banyak individu atau agen dalam waktu yang sama (Wilensky dan Rand, 2015).
+
+Terdapat beberapa komponen yang berperan penting dalam ABM, yaitu agen, lingkungan, dan interaksi (Macal dan North, 2010; Wilensky dan Rand, 2015).
+
+Agen merupakan entitas dasar dalam ABM, sehingga penting untuk merancang agen dengan baik. Dua aspek yang penting dalam mendefinisikan agen adalah properti atau ciri-ciri yang dimiliki serta perilaku atau tindakan yang dapat dilakukan. Properti agen menggambarkan keadaan suatu agen, sedangkan tindakan atau perilaku agen adalah cara-cara di mana suatu agen dapat mengubah keadaan lingkungan, agen lain, atau dirinya sendiri (Wilensky dan Rand, 2015). Selain itu, parameter agen dapat bersifat diskrit (seperti jenis kelamin) atau kontinu (seperti pendapatan) (McDonald dan Osgood, 2023).
+
+Lingkungan terdiri dari kondisi dan habitat yang mengelilingi agen saat mereka bertindak dan berinteraksi dalam model. Lingkungan dapat memengaruhi keputusan agen dan sebaliknya (Wilensky dan Rand, 2015).
+
+Untuk interaksi, terdapat lima jenis interaksi yang ada pada ABM (Wilensky dan Rand, 2015), yaitu
+\begin{enumerate}
+	\item \textit{Agent-Self Interactions}, yaitu agen interaksi dengan dirinya sendiri. Agen mempertimbangkan keadannya saat ini dan menentukan apa yang dilakukannya. Contoh dari interaksi ini adalah birth atau kelahiran agen baru dan death atau kematian agen yang telah ada.
+	\item \textit{Environment-Self Interactions}, yaitu ketika lingkungan interaksi dengan dirinya sendiri. Contoh dari interaksi ini adalah suatu rumput yang tumbuh.
+	\item \textit{Agent-Agent Interactions}, yaitu interaksi antara dua agen atau lebih. Contoh dari interaksi ini adalah predator dan mangsa, di mana agen predator memburu agen mangsa serta agen predator bersaing dengan predator lainnya untuk mendapatkan mangsa.
+	\item \textit{Environment-Environment Interactions}, yaitu interaksi antara berbagai bagian lingkungan yang berbeda. Contoh dari interaksi ini adalah difusi.
+	\item \textit{Agent-Environment Interactions}, yaitu interaksi yang terjadi ketika agen memanipulasi atau menguji bagian lingkungan tempatnya berada, atau ketika lingkungan berubah ketika mengobservasi agen yang berada di dalamnya. Contoh dari interaksi ini adalah semut yang mencari makanan, di mana semut perlu mengobservasi lingkungannya untuk mencari lingkungan atau tempat yang berpotensi menjadi sumber makanan, sehingga makanan dapat diambil kemudian.
+\end{enumerate}
+
+\section{Contoh Pemanfaatan ABM}
+
+\subsection{Simulasi Pertumbuhan Ekonomi di Sepanjang Jalan Tol}
+
+Penelitian yang bertujuan untuk mengetahui pertumbuhan ekonomi di sepanjang jalan tol yang ditandai dengan jumlah mobil yang mengunjungi \textit{rest area} pernah dilakukan oleh Tatang dan Viridi (2019) dengan ABM yang digabungkan dengan model gravitasi atau \textit{gravity model} (GM).
+
+\vspace{1em}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/2_toll_ex1}
+	\caption[Gambar sederhana 1]{Sistem simulasi oleh Tatang dan Viridi (2019) yang terdiri dari beberapa bagian: (A) kota A, (B) kota B, (C) jalan tol dari A ke B, (D) jalan tol dari B ke A, (E) rest area di jalan dari A ke B, dan (F) rest area di jalan dari B ke A, dan (G) dua jenis agen yang berbeda (Tatang dan Viridi, 2019).}
+	\label{fig:2_toll_ex1}
+\end{figure}
+\vspace{-2em}
+
+Karakteristik simulasi tersebut adalah sebagai berikut:
+\begin{itemize}
+	\item Beberapa aturan-aturan yang berlaku untuk para agen pada ABM diturunkan dari GM. 
+	\item Agen terdiri dari dua jenis, yaitu yang tidak butuh mengunjungi \textit{rest area} (biru), dan yang butuh (merah).
+	\item Pergerakan agen secara diskrit atau menggunakan grid.
+	\item Variasi skenario berdasarkan banyaknya agen berwarna merah dan biru.
+%	\item Simulasi dibuat dengan bahasa pemrograman JavaScript.
+\end{itemize}
+
+\vspace{2.5\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/2_toll_ex2}
+	\caption[Gambar sederhana 2]{Pergerakan agen-agen pada simulasi. Hanya ada beberapa agen berwarna merah yang berada di dalam rest area (Tatang dan Viridi, 2019).}
+	\label{fig:2_toll_ex2}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Hasil dari penelitian yang dilakukan oleh Tatang dan Viridi (2019) dengan variasi perbandingan antara agen yang berwarna biru dan yang berwarna merah, adalah semakin banyak agen merah, maka semakin sedikit jumlah agen yang mengunjungi kota A dari kota B dan sebaliknya, tetapi jumlah agen yang mengunjungi \textit{rest area} juga bertambah. Selain itu, \textit{rest area} yang dekat dengan kota asal suatu agen juga memiliki lebih banyak pengunjung daripada \textit{rest area} yang lokasinya jauh dengan kota asal.
+
+\subsection{Simulasi Evakuasi Gedung}
+
+\vspace{0.5\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=0.55\textwidth]{images/2_evac_ex1}
+	\caption[Gambar sederhana 3]{Ilustrasi lingkungan berupa interior suatu gedung pada simulasi oleh Firdausyi (2023) yang terdiri dari dinding (coklat), titik keluar (hijau tua), serta agen yang mewakili anak-anak (hijau muda), orang dewasa (kuning), manusia lanjut usia (jingga), dan manusia dengan disabilitas (biru tua) (Firdausyi, 2023).}
+	\label{fig:2_evac_ex1}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Pada tahun 2023, Firdausyi mempublikasikan penelitian yang berkaitan dengan simulasi evakuasi ketika terjadi kebakaran gedung. Metode yang digunakan dalam pembuatan simulasi tersebut adalah ABM digunakan untuk merepresentasikan karakteristik dan pengambilan keputusan masing-masing individu, sedangkan sedangkan model gaya sosial atau \textit{social force model} (SFM) digunakan untuk menggambarkan pergerakan agen.
+
+Karakteristik simulasi tersebut adalah sebagai berikut.
+\begin{itemize}
+	\item Agen terdiri dari empat jenis, yaitu yang mewakili anak-anak (warna hijau muda), orang dewasa (warna kuning), manusia lanjut usia (warna jingga), dan manusia dengan disabilitas (warna biru tua).
+	\item Pergerakan agen secara kontinu.
+	\item Variasi skenario berdasarkan kepadatan populasi agen, jumlah titik keluar, dan lebar titik keluar.
+%	\item Simulasi dibuat dengan NetLogo.
+\end{itemize}
+
+\vspace{1\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/2_evac_ex2}
+	\caption[Gambar sederhana 4]{Pergerakan agen-agen yang menuju titik keluar gedung (Firdausyi, 2023).}
+	\label{fig:2_evac_ex2}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Hasil yang diperoleh pada penelitian yang dilakukan oleh Firdausyi (2023) adalah muncul perilaku kolektif atau emergence seperti sumbatan (\textit{bottleneck}), \textit{arching}, dan \textit{clogging} ketika agen bergerak menuju titik keluar dengan segera. Selain itu, semakin banyak agen yang berada pada sekitar titik keluar, maka akan semakin cepat proses evakuasi berlangsung karena jarak yang harus ditempuh menuju titik keluar semakin pendek. Kemudian, peletakan titik keluar yang lebih efektif mempersingkat durasi evakuasi adalah ketika titik keluar diletakkan di sisi yang berbeda satu sama lain. Terakhir, lebar titik keluar dapat memengaruhi durasi evakuasi, hingga pada lebar tertentu perbedaannya tidak lagi signifikan.
+
+\subsection{Simulasi Evakuasi Kebakaran Hutan}
+
+\vspace{0.5\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/2_evac2_ex1}
+	\caption[Gambar sederhana 5]{Model evakuasi kebakaran hutan berbasis agen di Mati, Yunani di NetLogo. Panel kiri berisi daftar variabel sistem yang dapat dikontrol seperti pembagian mode dan strategi evakuasi, serta aspek perilaku dan fisik dari penduduk di area beresiko. Dinamika evakuasi ditampilkan dalam tampilan di panel tengah, yang menunjukkan pergerakan mobil dan pejalan kaki melalui \textit{evacuation route system}, bersama dengan perambatan api (warna jingga) dan area prioritas yang dipilih untuk evakuasi bertahap (bentuk geometris berwarna merah muda). Panel kanan berisi hasil evakuasi dalam hal jumlah korban kebakaran (Siam dkk., 2022).}
+	\label{fig:2_evac2_ex1}
+\end{figure}
+\vspace{-1\baselineskip}
+
+ABM juga diterapkan untuk pada simulasi evakuasi kebakaran hutan yang terjadi pada tahun 2018 di desa Mati, Yunani. (Siam dkk., 2022). Model ini mengintegrasikan sistem bahaya alam (penyebaran api) dengan sistem respons sosioteknis yang terdiri dari komponen sosial (respons penduduk) dan komponen rekayasa (jaringan transportasi dan lokasi penampungan). Tujuan penelitian tersebut adalah untuk menginvestigasi dampak dari keputusan penduduk di daerah beresiko terhadap korban kebakaran hutan dan lahan mengenai apakah mereka akan pergi dan berapa lama mereka harus menunggu (misalnya, waktu keberangkatan), pilihan transportasi yang digunakan, seperti jalan kaki atau berkendara, dan seberapa cepat mereka melakukan perjalanan.
+
+\vspace{1\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/2_evac2_ex2}
+	\caption[Gambar sederhana 6]{Cuplikan simulasi model pada berbagai tahap kejadian kebakaran hutan, pada (a) $t=0 \, min$ menunjukkan di mana populasi awal dan tempat penampungan terdistribusi; (b) $t=40 \, min$ menunjukkan pergerakan pengungsi baik dengan mobil (biru muda) atau berjalan kaki (ungu); dan (c) - (d) kebakaran hutan melanda kota sekitar $t=80 \, min$ hingga $t=180 \, min$, yang menyebabkan korban jiwa (jingga) (Siam dkk., 2022).}
+	\label{fig:2_evac2_ex2}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Hasil yang diperoleh dari penelitian yang dilakukan oleh Siam dkk. (2022) adalah sebagai berikut:
+\begin{itemize}
+	\item Baik kecepatan berjalan kaki pejalan kaki maupun kecepatan kendaraan mengurangi tingkat kematian, tetapi efek dari variabel-variabel ini bergantung pada nilai variabel lain.
+	\item Pesan yang ditargetkan dalam bentuk diskusi kelompok terarah atau strategi lain yang sesuai harus diberikan kepada rumah tangga yang memiliki anak-anak untuk mempromosikan perencanaan evakuasi sebelum kejadian.
+	\item Evakuasi bertahap atau staged evacuation dapat mengurangi angka kematian secara signifikan dibandingkan dengan evakuasi serentak.
+	\item Kematian terendah dapat dicapai ketika ada pemisahan moda (modal split) antara evakuasi kendaraan dan pejalan kaki. Dalam kasus ini, hal ini terjadi ketika 70\% pengungsi memilih berjalan kaki dan 30\% memilih berkendara.
+	\item Skema alokasi kapasitas tempat penampungan yang lebih baik dapat secara signifikan mengurangi angka kematian.
+\end{itemize}
+
+\section{Jalan Tol}
+Menurut Peraturan Pemerintah Nomor 15 Tahun 2005, jalan tol adalah adalah jalan umum yang merupakan bagian sistem jaringan jalan dan sebagai jalan nasional yang penggunanya diwajibkan membayar tol. Penyelengaraan jalan tol bertujuan meningkatkan efisiensi pelayanan jasa distribusi guna menunjang peningkatan pertumbuhan ekonomi terutama di wilayah yang sudah tinggi tingkat perkembangannya.
+
+\section{\textit{Rest Area}}
+Berdasarkan Peraturan Menteri Pekerjaan Umum dan Perumahan Rakyat Republik Indonesia Nomor 28 Tahun 2021, \textit{rest area} adalah suatu tempat istirahat yang yang dilengkapi dengan berbagai fasilitas umum bagi pengguna jalan tol, sehingga baik bagi pengendara, penumpang, maupun kendaraannya dapat beristirahat untuk sementara. Rest area juga dilengkapi dengan berbagai fasilitas, antara lain tempat parkir, miniswalayan, peturasan atau tempat buang air kecil, dan stasiun pengisian bahan bakar umum.

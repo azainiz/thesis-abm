@@ -1,0 +1,93 @@
+\addtocontents{toc}{\vspace{1em}}
+
+\chapter{Metodologi Penelitian}
+
+\section{Pembuatan Model}
+Terdapat beberapa langkah dalam penelitian ini. Pertama, pembuatan program simulasi dengan bahasa pemrograman Python. Pendekatan simulasi yang digunakan adalah model berbasis agen atau \textit{agent-based model} (ABM). Verifikasi juga akan dilakukan untuk menghilangkan adanya kesalahan pada kode program yang dibuat. Dalam tahap ini, beberapa uji coba akan dilakukan untuk memastikan bahwa kode dari simulasi sesuai dengan fenomena yang diinginkan. Cara verifikasi yang akan dilakukan adalah dengan mengubah nilai input suatu model, memvariasikan parameter-parameter yang dimiliki pada model, menambahkan parameter dalam suatu model, atau mengubah lingkungan yang digunakan dalam model. Simulasi akan dilakukan secara berulang dengan berbagai skenario yang memiliki parameter yang berbeda, seperti banyaknya jumlah agen dan \textit{rest area}.
+
+\subsection{Penggunaan Perangkat Lunak dalam Pelaksanaan Penelitian}
+Dalam penelitian ini, perangkat lunak yang digunakan meliputi TeXstudio sebagai pengolah kata untuk dokumentasi penelitian tesis ini, dan Python sebagai bahasa pemrograman utama. Python dipilih karena ketersediaan \textit{library} atau modul yang mendukung pembuatan model berbasis agen. Modul yang dilibatkan adalah NumPy dan Math untuk operasi numerik, serta Matplotlib untuk visualisasi data.
+
+\subsection{Lingkungan dan Waktu}
+Dalam penelitian ini, digunakan \textit{grid} dua dimensi sebagai kerangka dasarnya. \textit{Grid} yang digunakan direpresentasikan dalam koordinat kartesian dengan sumbu-$x$ dan $y$. Setiap agen dan \textit{rest area} menempati satu sel pada \textit{grid}, sedangkan komponen lingkungan berupa jalan tol dapat menempati lebih dari satu sel pada \textit{grid}.
+
+\vspace{1\baselineskip}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\textbf{Struktur}  & \textbf{Deskripsi}                                                          & \textbf{Warna} & \textbf{Nilai} & \textbf{Karakteristik}                                                                \\ \hline
+		Rumput             & \begin{tabular}[c]{@{}l@{}}Untuk membatasi \\ ruang gerak agen\end{tabular} & Hijau          & $0$ & \begin{tabular}[c]{@{}l@{}}Tidak dapat \\ ditempati oleh agen\end{tabular} \\ \hline
+		Jalan Tol          & \begin{tabular}[c]{@{}l@{}}Tempat agen \\ bergerak\end{tabular}             & Abu-abu & $1$     & \begin{tabular}[c]{@{}l@{}}Dapat ditempati \\ oleh agen\end{tabular} \\ \hline
+		\textit{Rest Area} & \begin{tabular}[c]{@{}l@{}}Tempat agen untuk \\ beristirahat\end{tabular}   & Biru langit & $2$ & \begin{tabular}[c]{@{}l@{}}Dapat ditempati \\ oleh agen\end{tabular} \\ \hline
+	\end{tabular}
+	\centeredcaption{Deskripsi struktur lingkungan yang digunakan.}
+	\label{tab:3_env_structure}
+\end{table}
+\vspace{-1\baselineskip}
+
+Setiap proses simulasi dimulai dengan menentukan panjang dan lebar dalam sumbu-$x$ dan $y$. Kemudian, dilakukan pengaturan jalan tol, seperti panjang dan jumlah lajurnya, dan \textit{rest area} untuk membentuk lingkungan yang akan digunakan. Pada tahap ini, struktur berupa jalan tol dibentuk untuk menggambarkan suatu ruang tempat agen berada. Deskripsi dari struktur serta visualisasi lingkungan yang digunakan dapat dilihat pada Tabel \ref{tab:3_env_structure} dan Gambar \ref{fig:3_env_grid_example}.
+
+\vspace{0.5\baselineskip}
+%\vspace{2.5\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/3_env_example}
+	\caption[Gambar sederhana 3]{Contoh lingkungan yang digunakan. Warna hijau, abu-abu, dan biru langit masing-masing mempresentasikan  rumput, jalan tol, dan \textit{rest area}.}
+	\label{fig:3_env_grid_example}
+\end{figure}
+\vspace{-1\baselineskip}
+
+\subsection{Properti Agen}
+Pada simulasi ini, agen merepresentasikan seorang pengendara mobil yang terlibat dalam suatu perjalanan. Agen memiliki beberapa variabel, posisi dalam koordinat kartesian $x$ dan $y$ \textit{drowsiness}. Informasi lebih lanjut terkait variabel agen dapat dilihat pada Tabel \ref{tab:3_agent_variables}
+
+%\vspace{2.5\baselineskip}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Variabel}  & \textbf{Deskripsi}                                                                                                                                                                            & \textbf{Nilai} \\ \hline
+		$x$ dan $y$        & Koordinat posisi agen di dalam lingkungan                                                                                                                                                     & $\mathbb{Z} \geq 0$              \\ \hline
+		\textit{drowsiness}    & Tingkat rasa kantuk suatu agen                                                                                                                                                                & $\mathbb{Z} >\geq 0$      \\ \hline
+		\textit{direction} & Arah gerak suatu agen                                                                                                                                                                          & $[1, 3]$       \\ \hline
+		\textit{status}     & \begin{tabular}[c]{@{}l@{}}Status yang berkaitan dengan suatu agen, \\ 
+			yaitu berkendara di jalan tol, berada di \\ \textit{rest area}, sudah sampai tujuan, dan\\ mengalami kecelakaan\end{tabular} & $[1, 4]$       \\ \hline
+	\end{tabular}
+	\centeredcaption{Deskripsi struktur lingkungan yang digunakan.}
+	\label{tab:3_agent_variables}
+\end{table}
+\vspace{-1\baselineskip}
+
+Tabrakan didefinisikan sebagai dua agen yang menempati sel \textit{grid} di lajur jalan tol yang sama, sehingga tabrakan tidak dianggap sebagai \textit{n-body}.
+
+\subsection{Perilaku Agen}
+
+Selain itu, agen dibagi ke dalam tiga kategori berdasarkan tingkat kantuk atau \textit{drowsiness}, yaitu tidak mengantuk, sedikit mengantuk, dan mengantuk. Setiap kategori memiliki 
+
+Terdapat beberapa interaksi yang terjadi pada suatu agen:
+\begin{itemize}
+	\item Agen berinteraksi dengan dirinya sendiri. Setiap agen memiliki variabel tingkat kelelahan atau \textit{drowsiness} yang memengaruhi pengambilannya keputusan.
+	\item Agen berinteraksi dengan agen lainnya. Agen mengamati agen lain di sekitarnya dalam jarak tertentu, yang memengaruhi keputusan arah gerak.
+	\item Agen berinteraksi dengan lingkungan. Agen berinteraksi dengan elemen lingkungan jalan, seperti jumlah lajur dan lokasi \textit{rest area}. Keberadaan \textit{rest area} akan memicu agen dengan tingkat kelelahan tinggi untuk mempertimbangkan beristirahat.
+\end{itemize}
+\vspace{2.5\baselineskip}
+
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/3_flowchart_movement_decision}
+	\caption[Gambar sederhana 3]{\textit{Flowchart} untuk menentukan kemungkinan arah gerak suatu agen.}
+	\label{fig:3_flow_movement}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Selain itu, terdapat aturan
+\begin{enumerate}
+	\item Jika tidak ada jalan di depan (jalan buntu) atau ada agen lain di depan agen ini, maka pilihan gerak yang layak hanyalah pindah ke lajur kiri atau kanan.
+	\item Jika lajur di kiri tidak tersedia, baik ditempati oleh agen lainnya atau tidak ada, pilihan gerak yang layak adalah tetap lurus atau pindah ke lajur kanan.
+	\item Jika lajur di kanan tidak tersedia, baik ditempati oleh agen lainnya atau tidak ada, maka pilihan gerak yang layak adalah tetap lurus atau pindah ke lajur kiri.
+	\item Jika tingkat kantuk agen adalah Sangat Mengantuk (>100), maka aturan nomor 1-3 diabaikan.
+	\item Jika ada \textit{rest area} di sebelah kiri dan status agen adalah Sedikit Mengantuk (60-100) atau Sangat Mengantuk (>100), maka ada probabilitas 75\% untuk belok kiri ke \textit{rest area}.
+	\item Jika tidak ada satupun arah (lurus, kiri, kanan) yang layak atau mengalami kecelakaan (keluar dari jalan tol atau tabrakan dengan agen lain), agen harus berhenti dan tetap berada di \textit{grid} sebagai penghalang selama $N$ langkah waktu simulasi. Setelah $N$ langkah waktu berlalu, agen dihapus ("menghilang") dari simulasi.
+\end{enumerate}

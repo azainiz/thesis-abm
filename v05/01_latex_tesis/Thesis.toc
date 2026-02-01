@@ -1,0 +1,37 @@
+\contentsline {chapter}{ABSTRAK}{i}{}%
+\contentsline {chapter}{\textit {ABSTRACT}}{ii}{}%
+\contentsline {chapter}{HALAMAN PENGESAHAN}{iii}{}%
+\contentsline {chapter}{PEDOMAN PENGGUNAAN TESIS}{iv}{}%
+\contentsline {chapter}{HALAMAN PERUNTUKAN}{v}{}%
+\contentsline {chapter}{KATA PENGANTAR}{vi}{}%
+\contentsline {chapter}{DAFTAR ISI}{vii}{}%
+\contentsline {chapter}{DAFTAR GAMBAR DAN ILUSTRASI}{viii}{}%
+\contentsline {chapter}{DAFTAR TABEL}{ix}{}%
+\contentsline {chapter}{DAFTAR SINGKATAN DAN LAMBANG}{x}{}%
+\vspace {1em}
+\contentsline {chapter}{\numberline {I}Pendahuluan}{1}{}%
+\contentsline {section}{\numberline {I.1}Latar Belakang}{1}{}%
+\contentsline {section}{\numberline {I.2}Masalah Penelitian}{2}{}%
+\contentsline {section}{\numberline {I.3}Tujuan Penelitian}{2}{}%
+\contentsline {section}{\numberline {I.4}Batasan Masalah}{2}{}%
+\contentsline {section}{\numberline {I.5}Metode Penelitian}{2}{}%
+\contentsline {section}{\numberline {I.6}Sistematika Penulisan}{3}{}%
+\vspace {1em}
+\contentsline {chapter}{\numberline {II}Tinjauan Pustaka}{4}{}%
+\contentsline {section}{\numberline {II.1}Sistem Kompleks dan \textit {Emergence}}{4}{}%
+\contentsline {section}{\numberline {II.2}Pemodelan Berbasis Agen}{4}{}%
+\contentsline {section}{\numberline {II.3}Contoh Pemanfaatan ABM}{7}{}%
+\contentsline {subsection}{\numberline {II.3.1}Simulasi Pertumbuhan Ekonomi di Sepanjang Jalan Tol}{7}{}%
+\contentsline {subsection}{\numberline {II.3.2}Simulasi Evakuasi Gedung}{9}{}%
+\contentsline {subsection}{\numberline {II.3.3}Simulasi Evakuasi Kebakaran Hutan}{11}{}%
+\contentsline {section}{\numberline {II.4}Jalan Tol}{13}{}%
+\contentsline {section}{\numberline {II.5}\textit {Rest Area}}{13}{}%
+\vspace {1em}
+\contentsline {chapter}{\numberline {III}Metodologi Penelitian}{14}{}%
+\contentsline {section}{\numberline {III.1}Pembuatan Model}{14}{}%
+\contentsline {subsection}{\numberline {III.1.1}Penggunaan Perangkat Lunak dalam Pelaksanaan Penelitian}{14}{}%
+\contentsline {subsection}{\numberline {III.1.2}Lingkungan dan Waktu}{14}{}%
+\contentsline {subsection}{\numberline {III.1.3}Properti Agen}{15}{}%
+\contentsline {subsection}{\numberline {III.1.4}Perilaku Agen}{16}{}%
+\vspace {1em}
+\contentsline {chapter}{DAFTAR PUSTAKA}{19}{}%

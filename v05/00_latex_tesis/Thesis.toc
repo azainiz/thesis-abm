@@ -1,0 +1,11 @@
+\contentsline {chapter}{HALAMAN PENGESAHAN}{i}{}%
+\contentsline {chapter}{PEDOMAN PENGGUNAAN TESIS}{ii}{}%
+\contentsline {chapter}{HALAMAN PERUNTUKAN}{iii}{}%
+\contentsline {chapter}{KATA PENGANTAR}{iv}{}%
+\contentsline {chapter}{DAFTAR ISI}{v}{}%
+\contentsline {chapter}{DAFTAR GAMBAR DAN ILUSTRASI}{vi}{}%
+\contentsline {chapter}{DAFTAR TABEL}{vii}{}%
+\contentsline {chapter}{DAFTAR SINGKATAN DAN LAMBANG}{viii}{}%
+\contentsline {chapter}{\numberline {I}Pendahuluan}{x}{}%
+\contentsline {section}{\numberline {I.1}Latar Belakang}{x}{}%
+\contentsline {section}{\numberline {I.2}Masalah Penelitian}{xi}{}%
