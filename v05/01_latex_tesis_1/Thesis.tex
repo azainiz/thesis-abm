@@ -1,0 +1,217 @@
+\documentclass{itb-thesis}
+\graphicspath{{images/}}
+
+% Redefine unit to mm
+\makeatletter
+\renewcommand*{\lay@value}[2]{\strip@pt\dimexpr0.351459\dimexpr\csname#2\endcsname\relax\relax mm}
+\makeatother
+
+% Input Data Tesis
+\faculty{Fakultas Matematika dan Ilmu Pengetahuan Alam}
+
+\thesistitle{Simulasi Kelelahan Pengendara Mobil dan Kunjungan ke \textit{Rest Area} dengan \textit{Agent-based Model} (ABM) untuk Mencegah Kecelakaan di Jalan Tol}
+
+\entitle{Simulation of Driver Fatigue and Visits to Rest Areas Using Agent-based Model to Prevent Accidents on Toll Roads}
+
+\fullname{Ahmad Zaini Zahrandika}
+
+\idnum{20923302}
+
+\approvaldate{X Bulan 2026}
+
+\degree{Magister Sains Komputasi}
+
+\monthsubmit{Bulan}
+
+\yearsubmit{2026}
+
+\firstsupervisor{Dr. rer. nat. Sparisoma Viridi, S.Si.}
+\firstnip{000001}
+
+\secondsupervisor{Prof. Dr. Second Supervisor}
+\secondnip{000002}
+
+\thirdsupervisor{Prof. Dr. Third Supervisor}
+\thirdnip{000003}
+
+\begin{document}
+
+% ===================================================== %
+% COVER
+% ===================================================== %
+{
+	\cover
+}
+
+%\layout
+
+% ===================================================== %
+% ABSTRAK
+% ===================================================== %
+%{
+%	\titlespacing*{\chapter}{0pt}{-2.5\baselineskip}{0\baselineskip}
+%	\linespread{0.96}\selectfont
+%	\abstractid
+%	
+%	Abstrak yang ditulis dalam Bahasa Indonesia.
+%}
+
+% ===================================================== %
+% ABSTRACT (BAHASA INGGRIS)
+% ===================================================== %
+%{
+%	\titlespacing*{\chapter}{0pt}{-2.5\baselineskip}{0\baselineskip}
+%	\linespread{0.96}\selectfont
+%	\abstracten
+%	
+%	\textit{Abstract that is written in English}
+%}
+
+% ===================================================== %
+% HALAMAN PENGESAHAN
+% ===================================================== %
+\approvalpage
+
+
+% ===================================================== %
+% PEDOMAN PENGGUNAAN TESIS
+% ===================================================== %
+{
+	%\fontsize{12pt}{13.8pt}\selectfont
+	\thesisguide
+	
+	Tesis Magister yang tidak dipublikasikan terdaftar dan tersedia di Perpustakaan Institut Teknologi Bandung, dan terbuka untuk umum dengan ketentuan bahwa hak cipta pada penulis dengan mengikuti aturan HaKI yang berlaku di Institut Teknologi Bandung. Referensi kepustakaan diperkenankan dicatat, tetapi pengutipan atau peringkasan hanya dapat dilakukan seizin penulis dan harus disertai dengan kaidah ilmiah untuk menyebutkan sumbernya.
+	
+	Sitasi hasil penelitian Tesis ini dapat ditulis dalam bahasa Indonesia sebagai berikut:
+	\vspace{-3.5em}
+	
+	\begin{hangparas}{1.27cm}{1}
+		Zahrandika, A. (2026): Simulasi Kelelahan Pengendara Mobil dan Kunjungan ke \textit{Rest Area} dengan \textit{Agent-based Model} (ABM) untuk Mencegah Kecelakaan di Jalan Tol, Tesis Program Magister, Institut Teknologi Bandung.
+	\end{hangparas}
+	
+	dan dalam bahasa Inggris sebagai berikut:
+	
+	\begin{hangparas}{1.27cm}{1}
+		Zahrandika, A. (2026): \textit{Simulation of Driver Fatigue and Visits to Rest Areas Using Agent-based Models (ABM) to Prevent Accidents on Toll Roads}, Master's Thesis, Institut Teknologi Bandung.
+	\end{hangparas}
+	
+	Memperbanyak atau menerbitkan sebagian atau seluruh tesis haruslah seizin Dekan Sekolah Pascasarjana, Institut Teknologi Bandung.
+	
+	Catatan: baris kedua yang merupakan kelanjutan dari baris pertama (satu judul buku), dimulai dengan 7 ketukan (satu Tab) atau ronggak (\textit{hanging indentation}: 1,27 cm) dari tepi halaman.
+}
+
+
+% ===================================================== %
+% HALAMAN PERUNTUKAN
+% ===================================================== %
+%\dedicationpage
+%
+%\begin{center}
+%
+%\ 
+%\vfill
+%\begin{itshape}
+%Halaman peruntukan (dedication) bukan halaman yang diharuskan. Jika ada, pada halaman tersebut dituliskan untuk siapa tesis tersebut didedikasikan.
+%
+%
+%Kalimat pada halaman ini diposisikan di bagian tengah kertas.
+%
+%Contoh
+%
+%Dipersembahkan kepada orang tua, suami, anak, adik kakak, mertua serta keluarga besarku tercinta yang senantiasa mendukung lahir dan batin.
+%\end{itshape}
+%\vfill
+
+%\end{center}
+
+
+% ===================================================== %
+% KATA PENGANTAR
+% ===================================================== %
+%\preface
+
+%Halaman kata pengantar dicetak pada halaman baru. Pada halaman ini mahasiswa S2 berkesempatan untuk menyatakan terima kasih secara tertulis kepada pembimbing dan perorangan lainnya yang telah memberi bimbingan, nasihat, saran dan kritik, serta kepada mereka yang telah membantu melakukan penelitian, kepada perorangan atau badan telah memberi bantuan pembiayaan, dan sebagainya.
+
+%Cara menulis kata pengantar beraneka ragam, tetapi semuanya hendaknya menggunakan kalimat yang baku. Ucapan terima kasih agar dibuat tidak berlebihan dan dibatasi hanya yang "\textit{scientifically related}".
+
+
+% ===================================================== %
+% DAFTAR ISI
+% ===================================================== %
+{
+	\titlespacing*{\chapter}{0pt}{-2.5\baselineskip}{2\baselineskip}
+	\linespread{1}\selectfont
+	\tableofcontents
+}
+%\tableofcontents % Daftar Isi (harus ada) [otomatis oleh LaTeX]
+\addcontentsline{toc}{chapter}{\contentsname}
+
+
+% ===================================================== %
+% DAFTAR GAMBAR DAN ILUSTRASI
+% ===================================================== %
+{
+	\titlespacing*{\chapter}{0pt}{-2.5\baselineskip}{\baselineskip}
+	\linespread{1}\selectfont
+	\listoffigures
+}
+%\listoffigures % Daftar Gambar (umumnya ada) [otomatis oleh LaTeX]
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+
+% ===================================================== %
+% DAFTAR TABEL
+% ===================================================== %
+{
+	\titlespacing*{\chapter}{0pt}{-2.5\baselineskip}{\baselineskip}
+	\linespread{1}\selectfont
+	\listoftables
+}
+%\listoftables % Daftar Tabel (umumnya ada) [otomatis oleh LaTeX]
+\addcontentsline{toc}{chapter}{\listtablename}
+
+
+% ===================================================== %
+% DAFTAR SINGKATAN DAN LAMBANG
+% ===================================================== %
+\singkatan % Daftar Singkatan (jarang ada)
+
+\begin{singlespace}
+\begin{longtable}{@{}p{3cm}@{}@{}p{8cm}@{}@{}p{3cm}@{}}
+
+SINGKATAN & \centering Nama & \raggedright Pemakaian pertama kali pada halaman \\
+\endfirsthead
+LAMBANG & \centering Nama & \raggedright Pemakaian pertama kali pada halaman \\
+\endhead
+
+ABM & \textit{Agent-based Model} &  \tabularnewline
+UU & \textit{Undang-Undang} &  \tabularnewline
+
+\end{longtable}
+\end{singlespace}
+
+% ===================================================== %
+
+% Pergantian jenis angka untuk nomor halaman
+\clearpage
+\pagenumbering{arabic}
+
+% ===================================================== %
+% BAB 1 - 5
+% ===================================================== %
+
+\fontsize{12pt}{13.8pt}\selectfont
+%\setlength{\baselineskip}{13.8pt}
+\include{chapters/bab1}
+\include{chapters/bab2}
+\include{chapters/bab3}
+\include{chapters/bab4}
+%\include{chapters/bab5}
+
+% ===================================================== %
+% Daftar Pustaka, Lampiran
+% ===================================================== %
+
+\include{chapters/pustaka}
+
+\end{document}

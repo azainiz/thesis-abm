@@ -1,0 +1,27 @@
+\addtocontents{toc}{\vspace{1em}}
+
+\chapter{Hasil Sementara}
+
+\section{Hasil}
+
+\vspace{1\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/4_test2}
+	\caption[Skenario sementara]{Skenario sementara. Ditunjukkan struktur lingkungan berupa rumput (hijau), jalan tol (abu-abu), dan \textit{rest area} (biru langit). Selain itu, juga ditunjukkan beberapa agen dalam kondisi Tidak Mengantuk (biru) dan Sedikit Mengantuk (kuning). Agen yang mengalami kecelakaan dengan keluar jalur (hitam) juga dapat dilihat.}
+	\label{fig:4_temp_figure0}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Berdasarkan hasil yang diperoleh dari simulasi, tidak semua agen yang mempunyai \texttt{drowsiness} $>= 60$ mengunjungi \textit{rest area}, karena tidak berada di lajur yang paling dekat dengan \textit{rest area} dan walaupun mereka berada di lajur tersebut, mereka tetep memiliki peluang untuk melewatinya. Namun, \textit{rest area} memiliki dampak yang positif, karena dapat mengurangi terjadinya kecelakaan di jalan tol. Hal ini dapat dilihat pada Gambar \ref{fig:4_temp_figure}
+
+\vspace{1\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=0.6\textwidth]{images/4_t1_accident_combine}
+	\caption[Hasil sementara]{Hasil sementara. Ditunjukkan banyaknya kecelakaan dalam simulasi dengan skenario tanpa \textit{rest area} (hitam) dan 1 \textit{rest area} (merah).}
+	\label{fig:4_temp_figure}
+\end{figure}
+\vspace{-1\baselineskip}

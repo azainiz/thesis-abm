@@ -1,0 +1,137 @@
+\addtocontents{toc}{\vspace{1em}}
+
+\chapter{Perancangan Sistem}
+
+\section{Pembuatan Sistem Simulasi}
+Terdapat beberapa langkah dalam penelitian ini. Pertama, pembuatan program simulasi dengan bahasa pemrograman Python. Pendekatan simulasi yang digunakan adalah model berbasis agen atau \textit{agent-based model} (ABM). Simulasi akan dilakukan secara berulang dengan berbagai skenario yang memiliki parameter yang berbeda, seperti banyaknya \textit{rest area}.
+
+\subsection{Penggunaan Perangkat Lunak dalam Pelaksanaan Penelitian}
+Dalam penelitian ini, perangkat lunak yang digunakan meliputi TeXstudio sebagai pengolah kata untuk dokumentasi penelitian tesis ini, dan Python sebagai bahasa pemrograman utama. Python dipilih karena ketersediaan \textit{library} atau modul yang mendukung pembuatan model berbasis agen. Modul yang dilibatkan adalah NumPy dan Math untuk operasi numerik, serta Matplotlib untuk visualisasi data.
+
+\subsection{Lingkungan}
+Dalam penelitian ini, digunakan \textit{grid} dua dimensi atau jaringan persegi (\textit{square lattice}) sebagai kerangka dasarnya. \textit{Grid} yang digunakan direpresentasikan dalam koordinat kartesian dengan sumbu-$x$ dan $y$. Setiap agen dan \textit{rest area} menempati satu sel pada \textit{grid}, sedangkan komponen lingkungan berupa jalan tol dapat menempati lebih dari satu sel pada \textit{grid}.
+
+\vspace{1\baselineskip}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\textbf{Struktur}  & \textbf{Deskripsi}                                                          & \textbf{Warna} & \textbf{Nilai} & \textbf{Karakteristik}                                                                \\ \hline
+		Rumput             & \begin{tabular}[c]{@{}l@{}}Untuk membatasi \\ ruang gerak agen\end{tabular} & Hijau          & $0$ & \begin{tabular}[c]{@{}l@{}}Tidak dapat \\ ditempati oleh agen\end{tabular} \\ \hline
+		Jalan Tol          & \begin{tabular}[c]{@{}l@{}}Tempat agen \\ bergerak\end{tabular}             & Abu-abu & $1$     & \begin{tabular}[c]{@{}l@{}}Dapat ditempati \\ oleh agen\end{tabular} \\ \hline
+		\textit{Rest Area} & \begin{tabular}[c]{@{}l@{}}Tempat agen untuk \\ beristirahat\end{tabular}   & Biru langit & $2$ & \begin{tabular}[c]{@{}l@{}}Dapat ditempati \\ oleh agen\end{tabular} \\ \hline
+	\end{tabular}
+	\centeredcaption{Deskripsi struktur lingkungan yang digunakan.}
+	\label{tab:3_env_structure}
+\end{table}
+\vspace{-1\baselineskip}
+
+Setiap proses simulasi dimulai dengan menentukan panjang dan lebar dalam sumbu-$x$ dan $y$. Kemudian, dilakukan pengaturan jalan tol, seperti panjang dan jumlah lajurnya, dan \textit{rest area} untuk membentuk lingkungan yang akan digunakan. Pada tahap ini, struktur berupa jalan tol dibentuk untuk menggambarkan suatu ruang tempat agen berada. Deskripsi dari struktur serta visualisasi lingkungan yang digunakan dapat dilihat pada Tabel \ref{tab:3_env_structure} dan Gambar \ref{fig:3_env_grid_example}.
+
+\vspace{0.5\baselineskip}
+%\vspace{2.5\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/3_env_example}
+	\caption[Gambar sederhana 3]{Contoh lingkungan yang digunakan. Warna hijau, abu-abu, dan biru langit masing-masing mempresentasikan  rumput, jalan tol, dan \textit{rest area}.}
+	\label{fig:3_env_grid_example}
+\end{figure}
+\vspace{-0.5\baselineskip}
+
+\subsection{Variabel Agen}
+Pada simulasi ini, agen merepresentasikan seorang pengendara mobil yang terlibat dalam suatu perjalanan. Agen memiliki beberapa variabel dan penjelasan ringkas mengenai hal tersebut dapat dilihat pada Tabel \ref{tab:3_agent_variables}.
+
+\vspace{1\baselineskip}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Variabel}  & \textbf{Deskripsi}                                                                                                                                                                            & \textbf{Nilai} \\ \hline
+		\texttt{x} dan \texttt{y}        & Koordinat posisi agen di dalam lingkungan     & $\mathbb{Z} \geq 0$              \\ \hline
+		\texttt{drowsiness}    & Tingkat rasa kantuk suatu agen                                                                                                                                                                & $\mathbb{Z} \geq 0$      \\ \hline
+		\texttt{direction} & Arah gerak suatu agen                                                                                                                                                                          & $[0, 1, 2, 3]$       \\ \hline
+		\texttt{status}     & \begin{tabular}[c]{@{}l@{}}Status yang berkaitan dengan suatu agen, \\ 
+			yaitu berkendara di jalan tol, berada di \\ \textit{rest area}, sudah sampai tujuan, dan\\ mengalami kecelakaan\end{tabular} & $[1, 2, 3, 4]$       \\ \hline
+	\end{tabular}
+	\centeredcaption{Penjelasan mengenai variabel agen untuk penelitian ini.}
+	\label{tab:3_agent_variables}
+\end{table}
+\vspace{-0.5\baselineskip}
+
+\subsection{Arah Gerak Agen}
+Karena lingkungan yang digunakan berupa jaringan persegi, maka agen bergerak secara diskrit. Selain itu, setiap agen memiliki delapan tetangga di delapan arah yang bersinggungan dengan salah satu sisi atau sudut, yaitu atas ($8 \uparrow$), bawah ($4 \downarrow$), kiri ($6 \leftarrow$), kanan ($2 \rightarrow$), atas-kiri ($7 \nwarrow$), atas-kanan ($1 \nearrow$), bawah-kiri ($5 \swarrow$), dan bawah-kanan ($3 \searrow$).
+
+Pada simulasi ini, agen bergerak dari kiri ke kanan suatu lingkungan (seperti yang ditunjukkan pada Gambar \ref{fig:3_env_grid_example}). Arah gerak (\texttt{direction}) yang memungkinkan untuk agen adalah ($1 \nearrow$), ($2 \rightarrow$), dan ($3 \searrow$). ($2 \rightarrow$) mempresentasikan agen untuk gerak maju lurus, ($1 \nearrow$) untuk maju sambil pindah ke lajur kiri, serta ($3 \searrow$) untuk maju dan ganti maju sambil pindah ke lajur kanan. Agen juga bisa diam di tempat atau berhenti ($0 \, \cdot$) dalam suatu kondisi.
+
+\subsection{Status Agen}
+Variabel \texttt{status} menunjukkan di mana agen berada dan apa yang sedang dilakukannya dalam simulasi. Variabel ini dapat bernilai $1$ (sedang berkendara di jalan tol), $2$ (istirahat di \textit{rest area}), $3$ (sampai tujuan), dan $4$ (mengalami kecelakaan).
+
+Insiden kecelakaan didefinisikan mencakup dua skenario, yaitu keluar jalur (ketika agen memasuki sel yang bukan merupakan bagian dari jalan tol, yaitu area rumput), dan tabrakan antarkendaraan yang terjadi apabila lebih dari satu agen menempati sel \textit{grid} jalan tol yang sama.
+
+\subsection{Tingkat Kantuk Agen}
+Agen memiliki suatu variabel berupa tingkat kantuk atau \texttt{drowsiness} yang dapat memengaruhi perilaku suatu agen. Semakin tinggi nilai \texttt{drowsiness}, maka agen semakin tidak hati-hati dalam melakukan pergerakannya.
+
+Untuk kategori agen yang berkaitan dengan \textit{drowsiness}, dibagi ke dalam 3:
+\begin{itemize}
+	\item Tidak Mengantuk, yaitu agen dengan nilai \texttt{drowsiness} $< 60$.
+	\item Sedikit Mengantuk, yaitu agen dengan nilai \texttt{drowsiness} $\geq 60$ dan $< 100$.
+	\item Mengantuk, yaitu agen dengan nilai \texttt{drowsiness} $\geq$ 100.
+\end{itemize}
+\vspace{2\baselineskip}
+
+\section{Simulasi}
+
+Setiap agen diasumsikan memiliki kecepatan yang sama, yaitu 1 sel.
+
+Dalam setiap iterasi pada simulasi, terdapat peluang 60\% untuk membuat satu agen di sel pertama jalan tol. Nilai \textit{drowsiness} pada agen juga ditentukan secara acak
+
+Kemungkinan arah gerak agen bergantung pada \texttt{drowsiness}.
+\begin{itemize}
+	\item Agen dengan nilai \texttt{drowsiness} $< 60$ (Tidak Mengantuk) memiliki 75\% peluang untuk gerak maju ($2 \rightarrow$) dan 25\% untuk ganti lajur ($1 \nearrow$ atau $3 \searrow$)
+	\item Agen dengan nilai \texttt{drowsiness} $\geq 60$ dan $< 100$ (Sedikit Mengantuk) memiliki 60\% peluang untuk gerak maju dan 40\% untuk ganti lajur.
+	\item Agen dengan nilai \texttt{drowsiness} $\geq 100$ (Mengantuk) memiliki 40\% peluang untuk gerak maju, 40\% untuk ganti lajur, dan 20\% untuk berhenti ($0 \, \cdot$)
+\end{itemize}
+\vspace{2\baselineskip}
+
+Selain itu, terdapat aturan agen yang berkaitan dengan arah gerak dan pergerakannya:
+\begin{enumerate}
+	\item Jika tidak ada jalur di depan (jalan buntu) ($2 \rightarrow$) atau ada agen lain di depan agen ini, maka pilihan gerak yang layak hanyalah pindah ke lajur kiri ($1 \nearrow$) atau kanan ($3 \searrow$).
+	\item Jika sel tetangga agen pada atas-kanan ($1 \nearrow$) merupakan rumput atau agen lain, pilihan gerak yang layak adalah tetap lurus ($2 \rightarrow$) atau pindah ke lajur kanan ($3 \searrow$).
+	\item Jika sel tetangga agen pada bawah-kanan ($3 \nearrow$) merupakan rumput atau agen lain, maka pilihan gerak yang layak adalah tetap lurus ($2 \rightarrow$) atau pindah ke lajur kiri ($1 \nearrow$).
+	\item Jika agen memiliki \texttt{drowsiness} $>100$, maka aturan nomor 1-3 diabaikan.
+	\item Jika sel tetangga agen pada atas-kanan ($1 \nearrow$) merupakan \textit{rest area} serta nilai \texttt{drowsiness} $\geq 60$, ada peluang 75\% untuk mengunjungi \textit{rest area} ($1 \nearrow$).
+	\item Tabrakan didefinisikan sebagai dua agen yang menempati sel \textit{grid} di lajur jalan tol yang sama.
+	\item Jika tidak ada satupun arah gerak yang layak ($1 \nearrow$, $2 \rightarrow$, atau $3 \searrow$) karena memenuhi aturan 1, 2, 3, dan 5, maka agen akan berhenti ($0 \, \cdot$).
+	\item Jika agen mengalami "kecelakaan" yaitu keluar jalur atau tabrakan dengan agen lain, agen (dan agen lain jika terjadi tabrakan) harus berhenti dan tetap berada di \textit{grid} sebagai penghalang selama $t$ langkah waktu simulasi. Setelah $t$ langkah waktu berlalu, agen (dan agen lain yang terlibat dalam tabrakan) dihapus dari simulasi.
+\end{enumerate}
+
+\vspace{2.5\baselineskip}
+\begin{figure}[H]
+	\small
+	\centering
+	\includegraphics[width=1\textwidth]{images/3_flowchart_movement_decision}
+	\caption[\textit{Flowchart} untuk menentukan kemungkinan arah gerak agen]{\textit{Flowchart} untuk menentukan kemungkinan arah gerak suatu agen, seperti yang dijelaskan pada aturan nomor 1-3.}
+	\label{fig:3_flow_movement}
+\end{figure}
+\vspace{-1\baselineskip}
+
+Terdapat beberapa interaksi yang terjadi pada suatu agen:
+\begin{itemize}
+	\item Agen berinteraksi dengan dirinya sendiri. Setiap agen memiliki variabel tingkat kelelahan atau \textit{drowsiness} yang memengaruhi pengambilannya keputusan.
+	\item Agen berinteraksi dengan agen lainnya. Agen mengamati agen lain di sekitarnya dalam jarak tertentu, yang memengaruhi keputusan arah gerak.
+	\item Agen berinteraksi dengan lingkungan. Agen berinteraksi dengan stuktur lingkungan, seperti \textit{grid} rumput, jalan tol, \textit{rest area}. Keberadaan \textit{rest area} juga akan memicu agen dengan \texttt{drowsiness} tinggi untuk mempertimbangkan beristirahat di sana.
+\end{itemize}
+\vspace{2\baselineskip}
+
+Proses simulasi selesai jika banyaknya agen yang dimuat sudah mencapai batas. Sebagai contoh, jika banyaknya agen yang diminta untuk dimuat sebanyak 10, maka simulasi berhenti ketika agen ke-10 dimuat atau mulai berada di dalam lingkungan.
+
+\section{Skenario}
+Terdapat dua skenario yang digunakan pada simulasi ini:
+\begin{itemize}
+	\item Jalan tol dengan 2 lajur dan tidak ada \textit{rest area}
+	\item Jalan tol dengan 2 lajur dan 1 \textit{rest area}
+\end{itemize}
+\vspace{2\baselineskip}
+
+Kedua skenario terdiri dari 75 agen, tidak ada agen yang muncul pada iterasi pertama, dan dilakukan sebanyak 20 kali percobaan. Setiap percobaan dicatat berapa banyak kecelakaan yang terjadi, lalu dihitung rata-rata.
